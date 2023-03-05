@@ -23,7 +23,7 @@ public class CategoryService {
 		listEnabledCategories.forEach(category -> {
 			Set<Category> children = category.getChildren();
 			if (children == null || children.size() == 0) {
-				listNoChildrenCategories.add(category);
+				listNoChildrenCategories.add(category);//chỉ lấy tất cả các categories ko có children
 			}
 		});
 		

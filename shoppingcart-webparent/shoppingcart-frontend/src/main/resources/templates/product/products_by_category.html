@@ -9,11 +9,18 @@
 	<div th:replace="navigation :: header_menu"></div>
 	<div th:replace="navigation :: search_nav"></div>
 	<div th:replace="breadcrumb :: content"></div>
+	<!-- lưu ý điểm này: 
+	/c/ lấy ra tất cả categories cha,ông,...của category hiện tại 
+	/c/ lấy ra tất cả products thuộc về category hiện tại và tất cả products thuộc về categories con,cháu,... của category hiện tại
 	
+	/p/ lấy ra tất cả categories cha,ông,...của category hiện tại 
+	/p/ để lấy ra product hiện tại
+	
+	 -->
 	<div class="row text-center">
-		<th:block th:each="cat : ${category.children}">
+		<th:block th:each="cat : ${category.children}"> <!-- hiển thị tất cả categories con, cháu,..của category hiện tại -->
 			<div class="col" th:if="${cat.enabled == true}">
-				<a th:href="@{'/c/' + ${cat.alias}}">
+				<a th:href="@{'/c/' + ${cat.alias}}"> 
 					<img th:src="@{${cat.imagePath}}" height="100" />
 					<br/>
 					<b>[[${cat.name}]]</b>
@@ -24,12 +31,12 @@
 	
 	<div class="row">&nbsp;</div>
 	<div class="row">
-		<th:block th:each="product : ${listProducts}">
+		<th:block th:each="product : ${listProducts}"> <!-- listProducts bao gồm tất cả products thuộc về category hiện tại và tất cả products thuộc về categories con,cháu,... của category hiện tại -->
 			<div th:replace="product/product_fragment :: content"></div>
 		</th:block>
 	</div>
 	
-	<div th:replace="fragments :: pagination('/c/' + ${category.alias}, 'product')"></div>
+	<div th:replace="fragments :: pagination('/c/' + ${category.alias}, 'products')"></div>
 	
 	<div th:replace="navigation :: footer_menu"></div>
 </div>	

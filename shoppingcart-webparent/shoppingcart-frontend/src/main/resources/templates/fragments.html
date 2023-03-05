@@ -49,7 +49,12 @@
 		  </ul>
 		</nav>	
 	</div>	
-</div>	
+</div>
+
+<a th:fragment="page_link(moduleURL, pageNum, label)"
+	class="page-link" 
+	th:href="@{${moduleURL} + '/page/' + ${pageNum} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">[[${label}]]</a>
+			
 
 <div th:fragment="modal_dialog" class="modal fade text-center" id="modalDialog">
 	<div class="modal-dialog">

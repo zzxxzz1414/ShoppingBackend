@@ -14,4 +14,19 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 			+ " ORDER BY p.name ASC")
 	public Page<Product> listByCategory(Integer categoryId, String categoryIDMatch, Pageable pageable);
 	
+	public Product findByAlias(String alias);
+	
+	//alter table products, chọn indexes
+	//Index Name: products_FTS và Type: FULLTEXT
+	//Index Columns chọn name, short_description, full_description
+	/* câu SQL tương ứng sẽ là: 
+	ALTER TABLE `shoppingcart`.`products` 
+	ADD FULLTEXT INDEX `products_FTS` (`name`, `short_description`, `full_description`);
+	*/
+
+	@Query(value = "SELECT * FROM products WHERE enabled = true AND "
+			+ "MATCH(name, short_description, full_description) AGAINST (?1)", 
+			nativeQuery = true)
+	public Page<Product> search(String keyword, Pageable pageable);
+	
 }
