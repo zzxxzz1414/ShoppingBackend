@@ -20,7 +20,7 @@
 	
 	<th:block th:if="${product.discountPercent > 0}">
 		<span style="font-size: larger; color: darkred">$ [[${product.discountPrice}]]</span>
-		<del><span>$ [[${product.price}]]</del></span>
+		<span><del>$ [[${product.price}]]</del></span>
 	</th:block>
 </div>
 

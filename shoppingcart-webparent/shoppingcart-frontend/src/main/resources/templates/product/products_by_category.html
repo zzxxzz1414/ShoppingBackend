@@ -18,7 +18,7 @@
 	
 	 -->
 	<div class="row text-center">
-		<th:block th:each="cat : ${category.children}"> <!-- hiển thị tất cả categories con, cháu,..của category hiện tại -->
+		<th:block th:each="cat : ${category.children}"> <!-- chỉ hiển thị tất cả categories là con trực tiếp của category hiện tại -->
 			<div class="col" th:if="${cat.enabled == true}">
 				<a th:href="@{'/c/' + ${cat.alias}}"> 
 					<img th:src="@{${cat.imagePath}}" height="100" />

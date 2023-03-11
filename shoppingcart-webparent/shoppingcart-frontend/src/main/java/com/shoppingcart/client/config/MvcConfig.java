@@ -12,9 +12,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {//phải khai báo folder chứa hình thì mới truy cập được đến các folder hình này
-		exposeDirectory("category-images", registry);
-		exposeDirectory("brand-logos", registry); 
-		exposeDirectory("product-images", registry);
+		exposeDirectory("../category-images", registry);// ../sẽ trỏ đến folder trước file hiện tại
+		exposeDirectory("../brand-logos", registry); 
+		exposeDirectory("../product-images", registry);
 	}
 
 	private void exposeDirectory(String pathPattern, ResourceHandlerRegistry registry) {

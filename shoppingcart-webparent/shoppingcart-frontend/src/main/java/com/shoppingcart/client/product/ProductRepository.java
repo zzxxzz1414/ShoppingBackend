@@ -24,6 +24,8 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 	ADD FULLTEXT INDEX `products_FTS` (`name`, `short_description`, `full_description`);
 	*/
 
+	//Full Text Search giúp tìm kiếm nhanh chóng và hiệu quả
+	//Full Text Search được sử dụng khi tìm kiếm trên nhiều cột và dữ liệu tìm kiếm lớn
 	@Query(value = "SELECT * FROM products WHERE enabled = true AND "
 			+ "MATCH(name, short_description, full_description) AGAINST (?1)", 
 			nativeQuery = true)
