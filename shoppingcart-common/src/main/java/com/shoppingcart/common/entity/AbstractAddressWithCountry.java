@@ -3,8 +3,8 @@ package com.shoppingcart.common.entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-
-@MappedSuperclass
+//@MappedSuperclass dùng để tách những cột dùng chung cho nhiều entity thành một class riêng biệt -->refactor code 
+@MappedSuperclass//nhờ có annotation này mà tất cả các column khai báo trong class này sẽ được ánh xạ vào trong table customers
 public class AbstractAddressWithCountry extends AbstractAddress {
 	
 	@ManyToOne

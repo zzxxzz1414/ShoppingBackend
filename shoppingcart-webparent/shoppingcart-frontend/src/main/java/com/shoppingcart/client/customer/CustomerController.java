@@ -16,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shoppingcart.client.Utility;
@@ -30,6 +32,35 @@ public class CustomerController {
 	
 	@Autowired private CustomerService customerService;
 	@Autowired private SettingService settingService;
+	
+	//http://localhost:8083/ShoppingCartClient/customers/create?firstName=Nguyen&lastName=Tuyen
+	@GetMapping("/customers/create")
+	@ResponseBody
+	public String create(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
+							HttpServletRequest request) {
+		String requestURL = request.getRequestURL().toString();// http://localhost:8083/ShoppingCartClient/customers/create
+		String requestURI = request.getRequestURI();// /ShoppingCartClient/customers/create
+		String contextPath = request.getContextPath();// /ShoppingCartClient
+		String serverName = request.getServerName();// localhost
+		int serverPort = request.getServerPort();// 8083
+		String servletPath = request.getServletPath();// /customers/create
+		String queryString = request.getQueryString();// firstName=Nguyen&lastName=Tuyen
+		String parameter1 = request.getParameter("firstName");// Nguyen
+		String parameter2 = request.getParameter("lastName");// Tuyen
+		
+		String info = ("Request URL: " + requestURL
+				+ "\nRequest URI: " + requestURI
+				+ "\nContext Path: " + contextPath
+				+ "\nServer Name: " + serverName
+				+ "\nServer Port: " + serverPort
+				+ "\nServlet Path: " + servletPath
+				+ "\nQuery String: " + queryString
+				+ "\nParameter 1: " + parameter1
+				+ "\nParameter 2: " + parameter2
+				);
+		
+		return info;
+	}
 	
 	@GetMapping("/register")
 	public String showRegisterForm(Model model) {

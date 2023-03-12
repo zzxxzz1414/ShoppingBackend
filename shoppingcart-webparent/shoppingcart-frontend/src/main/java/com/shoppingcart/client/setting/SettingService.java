@@ -18,7 +18,7 @@ public class SettingService {//class này chứa tất cả các settings
 	MAIL_HOST			smtp.gmail.com			MAIL_SERVER
 	MAIL_PORT			587						MAIL_SERVER
 	MAIL_USERNAME		nhbtuyen2702@gmail.com	MAIL_SERVER				
-	MAIL_PASSWORD		gpctiolgpwrabzxn		MAIL_SERVER
+	MAIL_PASSWORD		gpctiolgpwrabzxm		MAIL_SERVER
 	MAIL_FROM			nhbtuyen2702@gmail.com	MAIL_SERVER
 	SMTP_AUTH			true					MAIL_SERVER
 	SMTP_SECURED		true					MAIL_SERVER
@@ -30,7 +30,9 @@ public class SettingService {//class này chứa tất cả các settings
 	MAIL_HOST = smtp.gmail.com
 	MAIL_PORT = Port for TLS/STARTTLS(Cổng cho TLS/STARTTLS) = 587
 	
-	2/ Đăng nhập đường dẫn: https://myaccount.google.com/apppasswords > nhập email và password > Select app(chọn ứng dụng), chọn Other(khác) > nhập Shopping Cart > Tạo > copy mã(gpctiolgpwrabzxn)
+	2/ Đăng nhập đường dẫn: https://myaccount.google.com/apppasswords > nhập email và password > Select app(chọn ứng dụng), chọn Other(khác) > nhập Shopping Cart > Tạo > copy mã(gpctiolgpwrabzxm)
+	Lưu ý: nếu như hệ thống báo cài đặt ko khả dụng khi truy cập đường dẫn này thì phải bật tính năng xác minh 2 bước trên tài khoản này.
+	Nhấn vào avatar > Quản lý tài khoản google của bạn > bảo mật > xác minh 2 bước > ...
 	*/
 	public EmailSettingBag getEmailSettings() {//các settings liên quan đến email
 		List<Setting> settings = settingRepo.findByCategory(SettingCategory.MAIL_SERVER);//lấy tất cả các records có SettingCategory là MAIL_SERVER

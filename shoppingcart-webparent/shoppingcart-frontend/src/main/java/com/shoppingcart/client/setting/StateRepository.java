@@ -10,4 +10,5 @@ import com.shoppingcart.common.entity.State;
 public interface StateRepository extends CrudRepository<State, Integer> {
 	
 	public List<State> findByCountryOrderByNameAsc(Country country);
+	
 }

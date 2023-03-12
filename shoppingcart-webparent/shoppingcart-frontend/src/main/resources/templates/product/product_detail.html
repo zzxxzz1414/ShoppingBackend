@@ -60,7 +60,7 @@
 				<span th:unless="${product.inStock}" class="text-danger"><b>Out of Stock</b></span>
 			</div>
 			
-			<th:block th:if="${product.inStock}"> <!-- nếu inStock = false =>hết hàng =>ko cho thêm vào giỏ hàng -->
+			<th:block th:if="${product.inStock}"> <!-- nếu inStock = false =>hết product =>ko cho thêm vào cart(giỏ hàng) -->
 				<div th:replace="cart/quantity_control :: quantity_control(1, ${product.id})"></div>
 				
 				<div class="mt-3">
@@ -103,6 +103,12 @@
 </div>	
 
 <script type="text/javascript">
+	productId = "[[${product.id}]]";//sử dụng trong addToCart()
+	contextPath = "[[@{/}]]";//sử dụng trong addToCart()
+	var csrfHeaderName = "[[${_csrf.headerName}]]";//X-CSRF-TOKEN, nhấn f12 để xem
+	var csrfValue = "[[${_csrf.token}]]";//a11dbd49-400e-481d-b66e-d2c7f66550bc, nhấn f12 để xem
+	
+
 	$(document).ready(function() {
 		bigImage = $("#bigImage");
 		
@@ -125,6 +131,7 @@
 <script type="text/javascript" th:src="@{/js/jquery.number.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/common_modal.js}"></script>
 <script type="text/javascript" th:src="@{/js/quantity_control.js}"></script>
+<script type="text/javascript" th:src="@{/js/add_to_cart.js}"></script>
 
 </body>
 </html>

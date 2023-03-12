@@ -2,8 +2,8 @@ package com.shoppingcart.common.entity;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-
-@MappedSuperclass
+//@MappedSuperclass dùng để tách những cột dùng chung cho nhiều entity thành một class riêng biệt -->refactor code 
+@MappedSuperclass//nhờ có annotation này mà tất cả các column khai báo trong class này sẽ được ánh xạ vào trong table customers
 public abstract class AbstractAddress extends IdBasedEntity {
 	
 	@Column(name = "first_name", nullable = false, length = 45)

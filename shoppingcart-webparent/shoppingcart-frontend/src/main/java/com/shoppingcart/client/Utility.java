@@ -1,7 +1,5 @@
 package com.shoppingcart.client;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +12,7 @@ import com.shoppingcart.client.setting.EmailSettingBag;
 
 public class Utility {
 	
+	//HttpServletRequest có thể lấy ra tất cả thông tin của request gửi đến
 	public static String getSiteURL(HttpServletRequest request) {
 		String siteURL = request.getRequestURL().toString();//http://localhost:8083/ShoppingCartClient/create_customer	http://localhost:8083/ShoppingCartClient/forgot_password
 		
@@ -39,7 +38,7 @@ public class Utility {
 	
 	//phương thức này sẽ kiểm tra customer đã đăng nhập hay chưa
 	public static String getEmailOfAuthenticatedCustomer(HttpServletRequest request) {
-		Object principal = request.getUserPrincipal();
+		Object principal = request.getUserPrincipal();//lấy ra customer trong request gửi đến
 		if (principal == null) return null;
 		
 		String customerEmail = null;

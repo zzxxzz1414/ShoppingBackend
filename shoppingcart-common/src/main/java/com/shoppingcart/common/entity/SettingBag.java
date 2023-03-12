@@ -10,10 +10,10 @@ public class SettingBag {
 		this.listSettings = listSettings;
 	}
 	
-	public Setting get(String key) {
+	public Setting get(String key) {//kiểm tra trong listSettings có tồn tại key truyền vào ko
 		int index = listSettings.indexOf(new Setting(key));
 		if (index >= 0) {
-			return listSettings.get(index);
+			return listSettings.get(index);//nếu có tồn tại thì trả về đối tượng setting tương ứng
 		}
 		
 		return null;

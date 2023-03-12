@@ -26,7 +26,7 @@ public class Customer extends AbstractAddressWithCountry {
 	@Column(name = "created_time")
 	private Date createdTime;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)//@Enumerated khai báo kiểu dữ liệu của cột này trong db là enum, khi một cột trong db có kiểu là enum, cột này chỉ lưu số nguyên tương ứng với mỗi giá trị. EnumType.STRING có tác dụng thay vì lưu số nguyên thì nó sẽ lưu giá trị là STRING 
 	@Column(name = "authentication_type", length = 10)
 	private AuthenticationType authenticationType;
 	

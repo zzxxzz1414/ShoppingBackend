@@ -16,7 +16,7 @@
 		<div class="collapse navbar-collapse" id="topNavbar">
 			<ul class="navbar-nav">		
 			
-				<th:block sec:authorize="!isAuthenticated()">
+				<th:block sec:authorize="!isAuthenticated()"><!-- customer đã login mới thấy được các items này -->
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/login}">Login</a>
 					</li>
@@ -25,6 +25,10 @@
 						<a class="nav-link" th:href="@{/register}">Register</a>
 					</li>
 				</th:block>
+				
+				<li class="nav-item">
+					<a class="nav-link fas fa-shopping-cart fa-2x" th:href="@{/cart}"></a>
+				</li>
 				
 				<li class="nav-item">
 					<a class="nav-link" href="">Contact</a>
