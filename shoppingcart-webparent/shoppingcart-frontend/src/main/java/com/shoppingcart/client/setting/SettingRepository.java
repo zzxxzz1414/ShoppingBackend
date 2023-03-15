@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.shoppingcart.common.entity.Setting;
-import com.shoppingcart.common.entity.SettingCategory;
+import com.shoppingcart.common.entity.setting.Setting;
+import com.shoppingcart.common.entity.setting.SettingCategory;
 
 public interface SettingRepository extends CrudRepository<Setting, String> {
 	

@@ -75,7 +75,7 @@ public class Product extends IdBasedEntity {
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)//cascade = CascadeType.ALL -->khi thực hiện repo.save(product) thì nó sẽ thực hiện save tất cả các productImages, productDetails bên trong product  
 	private Set<ProductImage> images = new HashSet<>();//vì 1 product có nhiều extraImages nên tạo 1 đối tượng productImage có mối quan hệ @ManyToOne với product
 	
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)//orphanRemoval khi đối tượng con ko được tham chiếu bởi bất kỳ đối tượng cha nào thì nó tự động bị xóa khỏi db(ví dụ trong trường hợp product bị xóa thì tất cả product details thuộc về nó cũng bị xóa luôn nếu các product details này ko được tham chiếu bởi product khác)
 	private List<ProductDetail> details = new ArrayList<>();//vì 1 product có nhiều details nên tạo 1 đối tượng productDetail có mối quan hệ @ManyToOne với product
 
 	@Transient

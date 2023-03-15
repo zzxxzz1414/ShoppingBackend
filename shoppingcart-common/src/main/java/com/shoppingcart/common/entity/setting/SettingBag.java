@@ -1,4 +1,4 @@
-package com.shoppingcart.common.entity;
+package com.shoppingcart.common.entity.setting;
 
 import java.util.List;
 

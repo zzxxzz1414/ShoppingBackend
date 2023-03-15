@@ -62,4 +62,9 @@ public class ShoppingCartService {
 		cartRepo.deleteByCustomerAndProduct(customer.getId(), productId);//xóa product trong cartItem
 	}
 	
+	//sau khi create order thì xóa cart này khỏi db
+	public void deleteByCustomer(Customer customer) {
+		cartRepo.deleteByCustomer(customer.getId());
+	}
+	
 }

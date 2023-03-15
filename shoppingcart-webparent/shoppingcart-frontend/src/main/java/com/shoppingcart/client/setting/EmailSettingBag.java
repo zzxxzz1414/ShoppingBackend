@@ -2,8 +2,8 @@ package com.shoppingcart.client.setting;
 
 import java.util.List;
 
-import com.shoppingcart.common.entity.Setting;
-import com.shoppingcart.common.entity.SettingBag;
+import com.shoppingcart.common.entity.setting.Setting;
+import com.shoppingcart.common.entity.setting.SettingBag;
 
 //class này dùng để lấy ra tất cả thông tin liên quan đến email
 public class EmailSettingBag extends SettingBag {
